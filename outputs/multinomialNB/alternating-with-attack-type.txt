@@ -1,0 +1,35 @@
+Enter number corresponding to classifier you would like to use:
+1. Support Vector Machines
+2. Gaussian Naive Bayes
+3. Multinomial Naive Bayes
+4. Stochastic Gradient Descent with Logistic Regression loss function
+3
+
+Enter number corresponding to data set you would like to use:
+1. First half and second half
+2. Alternating
+3. Alternating with attack type
+4. Alternating with attack type and target type
+3
+Reading training file
+Done. Time taken: 0.584812 secs.
+
+Create classifier
+Done. Time taken: 0.000012 secs.
+
+Fit classifier
+Done. Time taken: 0.196023 secs.
+
+Reading test file
+Done. Time taken: 0.706906 secs.
+
+Predict for test file
+Done. Time taken: 1.357419 secs.
+
+Compare outputs
+Done. Time taken: 0.107782 secs.
+
+Number right: 2409
+Number wrong: 20042
+Prediction rate: 10.73%
+Total time taken: 4.628695 secs.

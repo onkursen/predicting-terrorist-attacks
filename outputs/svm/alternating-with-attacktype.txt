@@ -1,0 +1,28 @@
+python run.py
+Enter number corresponding to data set you would like to use:
+1. First half and second half
+2. Alternating
+3. Alternating with attack type
+4. Alternating with attack type and target type
+3
+reading training file
+Done. Time taken: 0.536221 secs.
+
+create classifier
+Done. Time taken: 0.000037 secs.
+
+fit classifier
+Done. Time taken: 100.172838 secs.
+
+reading test file
+Done. Time taken: 0.546982 secs.
+
+predict for test file
+Done. Time taken: 115.407284 secs.
+
+compare outputs
+Done. Time taken: 0.013858 secs.
+
+Number right: 7615
+Number wrong: 14836
+Total time taken: 218.478684 secs.

@@ -1,0 +1,34 @@
+python run.py
+
+Enter number corresponding to classifier you would like to use:
+1. Support Vector Machines
+2. Gaussian Naive Bayes
+3. Stochastic Gradient Descent with Logistic Regression loss function
+3
+Enter number corresponding to data set you would like to use:
+1. First half and second half
+2. Alternating
+3. Alternating with attack type
+4. Alternating with attack type and target type
+3
+Reading training file
+Done. Time taken: 0.647007 secs.
+
+Create classifier
+Done. Time taken: 0.000057 secs.
+
+Fit classifier
+Done. Time taken: 1.197826 secs.
+
+Reading test file
+Done. Time taken: 0.649336 secs.
+
+Predict for test file
+Done. Time taken: 1.338116 secs.
+
+Compare outputs
+Done. Time taken: 0.011778 secs.
+
+Number right: 2318
+Number wrong: 20133
+Total time taken: 5.571360 secs.

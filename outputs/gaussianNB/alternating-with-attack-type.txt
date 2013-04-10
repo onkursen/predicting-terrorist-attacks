@@ -1,0 +1,28 @@
+python gaussianNB.py
+Enter number corresponding to data set you would like to use:
+1. First half and second half
+2. Alternating
+3. Alternating with attack type
+4. Alternating with attack type and target type
+3
+Reading training file
+Done. Time taken: 0.760074 secs.
+
+Create classifier
+Done. Time taken: 0.000005 secs.
+
+Fit classifier
+Done. Time taken: 0.084820 secs.
+
+Reading test file
+Done. Time taken: 0.648918 secs.
+
+Predict for test file
+Done. Time taken: 239.531902 secs.
+
+Compare outputs
+Done. Time taken: 0.012167 secs.
+
+Number right: 3861
+Number wrong: 18590
+Total time taken: 241.494591 secs.
