@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Using Machine Learning to Predict Terrorist Attacks</title>
+
+		<meta name="author" content="Onkur Sen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-markdown>
+					## Using Machine Learning to Predict Terrorist Attacks
+
+					[Onkur Sen](http://onkursen.com/)  
+					Rice University  
+					[https://github.com/onkursen/ct](https://github.com/onkursen/ct)
+				</section>
+
+				<section>
+					<section data-markdown>
+						## Background
+						* [Global Terrorism Database](http://www.start.umd.edu/gtd/) from Univ. of Maryland
+							* Info on 104k terrorist attacks (1970-2011)
+							* Treat fields as **features**
+						* **Goal**: use [machine learning](http://scikit-learn.org) to predict the country in which terrorist attacks will occur given various incomplete sets of features
+					</section>
+					<section data-markdown>
+						## Applications and Context
+						
+						* Counter-terrorism: real-world context for machine learning
+						* Classification: general problem applicable in all fields
+						* **Where's the physics?**
+							* Distinguishing classes of events (signal vs. background)
+							* Simulating data
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						## Machine Learning Approach
+					</section>
+					<section>
+						<h2>Features</h2>
+						<table style="margin: 0 auto 0 auto;">
+							<tr>
+								<td width='300'>
+									<h3>Input</h3>
+									<ul>
+										<li>Year</li>
+										<li>Month</li>
+										<li>Day</li>
+										<li>Attack Type</li>
+										<li>Target Type</li>
+									</ul>
+								</td>
+								<td width='200'>
+									<h3>Output</h3>
+									Country
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section data-markdown>
+						## Techniques Used
+						
+						* Support Vector Machines (SVM)
+						* Gaussian Naive Bayes (GNB)
+						* Stochastic Gradient Descent (SGD)  
+						All **supervised learning** approaches: train on data for which the result is known, then apply to new data
+					</section>
+					<section data-markdown>
+						## Datasets
+
+						### Incidents between 1970 and 1990
+
+						* Train on first half, test on second half (date only)
+						* Alternate train and test: date only
+						* Alternate train and test: date and attack type
+						* Alternate train and test: date, attack type, and target type
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						## First step.
+						### [Make a map.](http://onkursen.github.io/ct/mapbox.html)
+					</section>
+					<section data-markdown>
+						## Let's look at some code.
+						### [Pulling and preparing the data](https://github.com/onkursen/ct/blob/master/prepare.py)
+						### [Classifying and predicting](https://github.com/onkursen/ct/blob/master/run.py)
+
+						**Caution**: training and testing datasets of size ~20k each  
+						Classification step takes some time (3-5 minutes)!
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Results: Correct Prediction Rates</h2>
+						<table>
+							<tr>
+								<td width='800'><strong>Dataset</strong></td>
+								<td width='300'><strong>SVM</strong></td>
+								<td width='300'><strong>GNB</strong></td>
+								<td width='300'><strong>SGD</strong></td>
+							</tr>
+							<tr>
+								<td width='800'>Two halves</td>
+								<td width='300'>4.86%</td>
+								<td width='300'>6.20%</td>
+								<td width='300'>5.27%</td>
+							</tr>
+							<tr>
+								<td width='800'>Alternating: date</td>
+								<td width='300'>30.31%</td>
+								<td width='300'>14.70%</td>
+								<td width='300'>10.26%</td>
+							</tr>
+							<tr>
+								<td width='800'>Alternating: date, attack type</td>
+								<td width='300'>32.47%</td>
+								<td width='300'>17.20%</td>
+								<td width='300'>10.32%</td>
+							</tr>
+							<tr>
+								<td width='800'>Alternating: date, attack type, target type</td>
+								<td width='300'>35.75%</td>
+								<td width='300'>17.91%</td>
+								<td width='300'>10.28%</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+
+				<section data-markdown>
+					## Future Work
+					
+					* Adjust model parameters
+						* Can prediction be made better by fine-tuning?
+						* Are there features of the data that are not exploited?
+					* Examine prediction correctness over time
+						* Is the algorithm better at certain times than others?
+					* Switch inputs/outputs
+						* Given date and country, predict attack type?
+					* Clustering
+				</section>
+					
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

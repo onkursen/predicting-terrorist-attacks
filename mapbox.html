@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  <style>
+    body { margin:0; padding:0; }
+    .container {margin-left: 10%;}
+    #map { position:absolute; top:0; bottom:0; width:83%; }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <h4>Map: Terrorist Incidents by Year</h4>
+        <h5>Onkur Sen</h5>
+        <p>
+        <script type="text/javascript">
+          for (var year = 1970; year < 1991; year++) {
+            document.write("<a href='?year=" + year + "'>" + year + "</a><br>");
+          }
+        </script>
+        <br>
+        <a href="?">Clear all</a>
+        </p>
+      </div>
+      <div class="span7">
+        <div id='map'></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" id="markers"></script>
+<script type="text/javascript" src="functions.js"></script>
+
+</html>
