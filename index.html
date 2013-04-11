@@ -90,8 +90,14 @@
 						## Techniques Used
 						
 						* Support Vector Machines (SVM)
-						* Gaussian Naive Bayes (GNB)
-						* Stochastic Gradient Descent (SGD)  
+							* Good in high-dimensional spaces (can scale easily)
+						* Gaussian Naive Bayes (GNB):
+							* Assumes feature independence and Gaussian distribution
+						* Multinomial Naive Bayes (MNB)
+							* Same except assumes multinomial distribution
+						* Stochastic Gradient Descent (SGD)
+							* Very efficient and easy to tune
+						
 						All **supervised learning** approaches: train on data for which the result is known, then apply to new data
 					</section>
 					<section data-markdown>
@@ -129,30 +135,35 @@
 								<td width='800'><strong>Dataset</strong></td>
 								<td width='300'><strong>SVM</strong></td>
 								<td width='300'><strong>GNB</strong></td>
+								<td width='300'><strong>MNB</strong></td>
 								<td width='300'><strong>SGD</strong></td>
 							</tr>
 							<tr>
 								<td width='800'>Two halves</td>
 								<td width='300'>4.86%</td>
 								<td width='300'>6.20%</td>
+								<td width='300'>8.37%</td>
 								<td width='300'>5.27%</td>
 							</tr>
 							<tr>
 								<td width='800'>Alternating: date</td>
 								<td width='300'>30.31%</td>
 								<td width='300'>14.70%</td>
+								<td width='300'>10.91%</td>
 								<td width='300'>10.26%</td>
 							</tr>
 							<tr>
 								<td width='800'>Alternating: date, attack type</td>
 								<td width='300'>32.47%</td>
 								<td width='300'>17.20%</td>
+								<td width='300'>10.73%</td>
 								<td width='300'>10.32%</td>
 							</tr>
 							<tr>
 								<td width='800'>Alternating: date, attack type, target type</td>
 								<td width='300'>35.75%</td>
 								<td width='300'>17.91%</td>
+								<td width='300'>11.01%</td>
 								<td width='300'>10.28%</td>
 							</tr>
 						</table>
