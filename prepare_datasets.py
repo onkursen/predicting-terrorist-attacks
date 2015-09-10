@@ -1,11 +1,11 @@
 from openpyxl import load_workbook
 from time import time
 
-# READ DATA FILE INTO MEMORY AS WORKBOOK
+# Read data file into memory as workbook
 print 'Reading data file.'
 t  = time()
 ws = load_workbook(
-  filename = '/Users/mukul/Desktop/gtd_201210dist/gtd_70to90_1012dist.xlsx', 
+  filename = raw_input("Enter path of GTD data file: ").strip(),
   use_iterators = True
 ).worksheets[0]
 print 'Done. Time taken: %f secs.\n' % (time()-t)

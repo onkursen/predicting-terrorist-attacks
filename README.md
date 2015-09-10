@@ -1,4 +1,9 @@
-ct
-==
+# Predicting Terrorism Attacks
 
-Using machine learning and the Global Terrorism Database to predict terrorist attacks
+Using the [Global Terrorism Database](http://www.start.umd.edu/gtd/) and scikit-learn,
+I compared the effectiveness of different machine learning algorithms in
+predicting where and when terrorist attacks would occur.
+This was done as part of a project for PHYS 416 (Computational Physics) at
+Rice University.
+
+Released under the MIT license (see `LICENSE`).

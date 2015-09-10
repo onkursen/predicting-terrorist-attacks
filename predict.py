@@ -42,9 +42,10 @@ test_actual_outputs = []
 print 'Reading training file'
 t = time()
 for line in open('datasets/%s-train.txt' % filename):
-  i = line.split(' ')
-  train_outputs = np.append(train_outputs, int(i.pop()))
-  train_inputs.append(map(float, i))
+  inputs = line.split(' ')
+  output = inputs.pop()
+  train_outputs = np.append(train_outputs, int(output))
+  train_inputs.append(map(float, inputs))
 print 'Done. Time taken: %f secs.\n' % (time()-t)
 
 print 'Create classifier'
@@ -59,7 +60,6 @@ elif classifier == 2: # Gaussian Naive Bayes
   train_inputs = preprocessing.scale(np.array(train_inputs))
   clf = GaussianNB()
 elif classifier == 3: # Multinomial Naive Bayes
-  # train_inputs = preprocessing.scale(np.array(train_inputs))
   clf = MultinomialNB()
 elif classifier == 4: # Stochastic gradient descent with logistic regression
   train_inputs = preprocessing.scale(np.array(train_inputs))
@@ -75,9 +75,10 @@ print 'Done. Time taken: %f secs.\n' % (time()-t)
 print 'Reading test file'
 t = time()
 for line in open('datasets/%s-test.txt' % filename):
-  i = line.split(' ')
-  test_expected_outputs = np.append(test_expected_outputs, int(i.pop()))
-  test_inputs.append(map(float, i))
+  inputs = line.split(' ')
+  output = inputs.pop()
+  test_expected_outputs = np.append(test_expected_outputs, int(output))
+  test_inputs.append(map(float, inputs))
 
 # Same here: no preprocessing for SVMs
 # Otherwise, scale inputs (preprocessing to make more amenable for machine learning)
